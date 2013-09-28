@@ -1,7 +1,9 @@
 CC ?= cc
-CFLAGS := -Wall -std=c99 -g
+CFLAGS ?= -Wall -std=c99 -g
 PROGNAME := myprog
 SRCS := main.c # add more c source files here, separate by spaces
+
+prefix ?= /usr/local
 
 OBJS := $(SRCS:.c=.o)
 
@@ -28,3 +30,6 @@ $(PROGNAME): $(OBJS)
 .PHONY: clean
 clean:
 	rm -f *.o *.P $(PROGNAME)
+
+install:
+	cp $(PROGNAME) $(prefix)/bin
