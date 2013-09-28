@@ -73,6 +73,10 @@ int main(int argc, char *argv[]) {
         // do something with stdin?
     }
 
+    char *line = NULL;
+    size_t len = 0;
+    ssize_t read;
+
     // do something with each file given as argument
     for(; argc > 0; argc -= 1, argv +=1) {
         FILE *fpi;
@@ -83,11 +87,21 @@ int main(int argc, char *argv[]) {
             //can we continue on an error, or should be break out of
             //the loop?
         } else {
-            // Do something with fpi
-            // and don't forget to close it!
+            // Do something with fpi. Here is an
+            // example loop to read each line. You may consider moving
+            // the read loop (don't forget the associated variables
+            // defined above) into another function.
+            while ((read = getline(&line, &len, fpi)) != -1) {
+                if (VERBOSE)
+                    fprintf(stderr, "Read line of length %zu\n", read);
+                if (!QUIET)
+                    printf("%s", line);
+            }
+
+            // don't forget to close the file!
             fclose(fpi);
         }
     } 
-
+    free (line);
     exit(EXIT_SUCCESS);
 }
