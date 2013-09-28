@@ -1,6 +1,8 @@
 # Boilerplate C Standard I/O
 
-Set `PROGNAME` in `Makefile` to desired name of compiled program.
+1. fork the project
+2. Set `PROGNAME` in `Makefile` to desired name of compiled program.
+3. run `make`
 
 Compiled program will accept a number of arguments (run with `-h` to
 see the current options) any non-option command line arguments will be
