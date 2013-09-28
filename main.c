@@ -14,6 +14,12 @@ char progname[MAX_PROG_NAME_LEN+1];
 void usage(FILE* fpo, int status) {
     fprintf(fpo, "\
 usage: %s [options] [FILE...]\n\
+\n\
+Options:\n\
+  -d  show me some debugging messages\n\
+  -v  be verbose\n\
+  -q  be quiet\n\
+  -h  print this friendly message\n\
 ",progname);
     exit(status);
 }
