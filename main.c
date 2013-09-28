@@ -75,17 +75,17 @@ int main(int argc, char *argv[]) {
 
     // do something with each file given as argument
     for(; argc > 0; argc -= 1, argv +=1) {
-        FILE *fpo;
+        FILE *fpi;
         if (DEBUG)
             fprintf(stderr, "file argument: %s\n", *argv);
-        if ((fpo = fopen(*argv, "r")) == NULL) {
+        if ((fpi = fopen(*argv, "r")) == NULL) {
             errmsg(*argv);
             //can we continue on an error, or should be break out of
             //the loop?
         } else {
-            // Do something with fpo
+            // Do something with fpi
             // and don't forget to close it!
-            fclose(fpo);
+            fclose(fpi);
         }
     } 
 
